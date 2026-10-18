@@ -1,0 +1,3 @@
+CREATE TABLE IF NOT EXISTS chess_match_queue (user_id TEXT PRIMARY KEY, display_name TEXT NOT NULL DEFAULT 'Chess player', status TEXT NOT NULL DEFAULT 'waiting', room_id TEXT, joined_at TIMESTAMPTZ NOT NULL DEFAULT NOW(), updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW());
+CREATE INDEX IF NOT EXISTS chess_match_queue_waiting_idx ON chess_match_queue(status, joined_at);
+ALTER TABLE chess_rooms ADD COLUMN IF NOT EXISTS last_move_at TIMESTAMPTZ NOT NULL DEFAULT NOW();

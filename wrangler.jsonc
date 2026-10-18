@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "chess-network-api",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-16",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "chess-network-db",
+      "database_id": "f1118a16-e557-4105-9266-ecbadfdf4d49"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
